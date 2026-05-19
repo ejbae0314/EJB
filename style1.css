@@ -216,6 +216,10 @@ section {
   z-index: 200;
 }
 
+.sec02 .desc {
+  color: #fff;
+}
+
 /* sec03 */
 
 .sec03,
@@ -247,6 +251,26 @@ section {
 
 .sec03 ul li p {
   width: 40%;
+}
+
+/* sec04 */
+
+.sec04 ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+.sec04 ul li {
+  width: 20%;
+}
+
+.sec04 ul li img {
+  width: 100%;
+}
+
+.sec04 ul li div.imageBox {
+  position: relative;
 }
 
 /* sec06 */

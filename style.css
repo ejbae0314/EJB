@@ -295,6 +295,29 @@ header nav {
   width: 100%;
 }
 
+/* .sec02 linkBox
+.sec02 .linkBox {
+  border: 1px solid red;
+  width: 200px;
+  height: 100px;
+  position: absolute;
+  left: 60%;
+  top: 70%;
+  display: flex;
+  gap: 1rem;
+}
+
+.linkBox .pdfLink {
+  background-color: beige;
+  width: 4rem;
+  height: 2rem;
+  text-align: center;
+  line-height: 2rem;
+  border-radius: 20%;
+
+  z-index: 9999;
+} */
+
 /* sec03 */
 
 .sec03 {
