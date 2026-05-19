@@ -1,0 +1,197 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  gap: 50%;
+  padding: 0 1rem;
+  width: 100%;
+  height: 4rem;
+  align-items: center;
+  /* border: 1px solid red; */
+  background-image: url(img3.0/byunilho-papertexture-2061711.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 3;
+  transition: opacity 0.3s;
+}
+header h1 {
+  width: 4rem;
+
+  /* border: 1px solid green; */
+}
+
+header h1 img {
+  width: 100%;
+
+  object-fit: cover;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 3vw;
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 1.5rem;
+  color: #1f1a13;
+  font-family: "Monoton", sans-serif;
+}
+
+/* contents */
+
+#contents {
+  width: 100%;
+  height: 1700vh;
+
+  position: absolute;
+  /*  */
+  /* position: relative; */
+  top: 0;
+  left: 0;
+  z-index: 2;
+  margin-top: 0;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  margin-bottom: 100vh;
+  /*  */
+  pointer-events: none;
+}
+
+section {
+  width: 100%;
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  overflow: hidden;
+
+  position: relative;
+}
+
+.txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* hero */
+section.hero {
+  background-image: url(img3.0/byunilho-papertexture-2061711.jpg);
+}
+
+/* manifesto */
+section.manifesto {
+  background-image: url(img3.0/pedroml-ai-generated-8557635.jpg);
+}
+
+/* all */
+section.all {
+  font-size: 3vw;
+  word-break: keep-all;
+  position: relative;
+}
+section.all .txt {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 90%;
+}
+
+/* future */
+
+section.future {
+  background-image: url(img3.0/barbaraalane-soft-1678662.jpg);
+}
+/* closing */
+section.closing img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* footer */
+
+footer * {
+  pointer-events: auto;
+}
+
+footer {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  pointer-events: auto;
+}
+
+footer video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+footer .input {
+  width: 50%;
+  height: 50%;
+  position: relative;
+  z-index: 2;
+}
+
+footer .input h4 {
+  font-size: 10rem;
+  color: #fff;
+}
+
+.top {
+  background-color: beige;
+  width: 5rem;
+  height: 5rem;
+  text-align: center;
+  align-items: center;
+  border-radius: 50%;
+  padding: 1rem;
+  position: fixed;
+  right: 7%;
+  bottom: 7%;
+  color: #000;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 9999;
+}
+
+.top.footer_mode {
+  background: black;
+  color: white;
+}
