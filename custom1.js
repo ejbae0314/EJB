@@ -13,10 +13,16 @@ $(window).on("scroll", function () {
       opacity: 0,
       pointerEvents: "none",
     });
+    $("footer").css({
+      visibility: "visible",
+    });
   } else {
     $("header").css({
       opacity: 1,
       pointerEvents: "auto",
+    });
+    $("footer").css({
+      visibility: "hidden",
     });
   }
 
@@ -128,12 +134,12 @@ gsap
       // markers: true,
     },
   })
-  .to(".box1", { rotation: 360, duration: 1 })
-  .to(".box2", { scale: 1.2, duration: 1 })
-  .to(".box3", { x: 10, duration: 1 })
-  .to(".box4", { x: 10, duration: 1 })
-  .to(".box5", { x: 10, duration: 1 })
-  .to(".box6", { x: 10, duration: 1 });
+  .to(".box1", { y: 150, duration: 1 }, 0)
+  .to(".box2", { scale: 1.2, duration: 1 }, 1)
+  .to(".box3", { x: 10, duration: 1 }, 2)
+  .to(".box4", { x: 100, duration: 1 }, 3)
+  .to(".box5", { scale: 1.1, duration: 1 }, 4)
+  .to(".box6", { y: -50, duration: 1 }, 5);
 
 //sec06 사진 커짐
 gsap

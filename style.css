@@ -81,6 +81,8 @@ header {
 }
 header h1 {
   width: 4rem;
+  display: block;
+  flex-shrink: 0;
 
   /* border: 1px solid green; */
 }
@@ -89,14 +91,15 @@ header h1 img {
   width: 100%;
 
   object-fit: cover;
+  display: block;
 }
 
 header nav {
   display: flex;
   justify-content: space-evenly;
-  gap: 3vw;
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 1.5rem;
+  gap: clamp(20px, 2.5vw, 100px);
+
+  font-size: clamp(12px, 1.2vw, 30px);
   color: #1f1a13;
   font-family: "Monoton", sans-serif;
 }
@@ -338,36 +341,43 @@ header nav {
 
 .sec03 .screens {
   width: 90%;
-  height: 90%;
+
   display: block;
   margin: 0 auto;
+  position: relative;
+  aspect-ratio: 1 / 1;
 }
 
 .sec03 .screens img {
   width: 100%;
+  display: block;
 }
 
 .sec03 ul {
   width: 90%;
-  height: 90%;
+  aspect-ratio: 1 / 1;
   /* display: flex; */
   overflow: hidden;
   /* border: 1px solid red; */
   margin: 0 auto;
+  /* position: absolute; */
+  /* inset: 0; */
 }
 
 .sec03 .web {
   width: 36.5%;
-  height: 44%;
+
   position: absolute;
   top: 43.9%;
   left: 13.5%;
+  aspect-ratio: 16 / 9;
 }
 
 .sec03 .web video {
   width: 100%;
-  height: 100%;
+
   object-fit: cover;
+  display: block;
 }
 
 .sec03 .tablet {
@@ -376,13 +386,16 @@ header nav {
   top: 51%;
   left: 62%;
   width: 14.7%;
-  height: 42%;
+  /* height: 42%; */
+
+  aspect-ratio: 4 / 5;
 }
 
 .sec03 .tablet video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 .sec03 .mobile {
@@ -390,14 +403,16 @@ header nav {
   top: 64%;
   right: 9.3%;
   width: 8%;
-  height: 28%;
+
   /* border: 1px solid red; */
+  aspect-ratio: 9 / 16;
 }
 
 .sec03 .mobile video {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  display: block;
 }
 
 /* sec04 */
@@ -438,6 +453,10 @@ header nav {
   flex-shrink: 0;
 }
 
+.sec04 ul li.mac {
+  width: 600px;
+}
+
 .sec04 ul li img {
   width: 100%;
 }
@@ -473,11 +492,14 @@ header nav {
 }
 
 .sec05 ul li {
-  width: calc(100% / 2);
+  width: calc((100% - 2rem) / 2);
+  flex-shrink: 0;
+  flex-wrap: wrap;
 }
 .sec05 video {
   width: 100%;
   margin-left: 5%;
+  display: block;
 }
 
 /* sec06 */
@@ -507,7 +529,7 @@ header nav {
 
 .sec06 ul li {
   width: calc((100% - 3rem) / 4);
-  height: 70vh;
+  height: 60vh;
   /* border: 1px solid red; */
   flex-shrink: 0;
   position: relative;
@@ -534,6 +556,8 @@ header nav {
 .sec06 ul li .txt h3 {
   text-align: center;
   margin-bottom: 1rem;
+  /* border: 1px solid red; */
+  margin-left: 0;
 }
 
 .sec06 ul li .txt span {
@@ -658,6 +682,7 @@ footer {
   justify-content: center;
   align-items: center;
   pointer-events: auto;
+  visibility: hidden;
 }
 
 footer video {
@@ -676,7 +701,7 @@ footer .input {
 }
 
 footer .input h4 {
-  font-size: 10rem;
+  font-size: 10vw;
   color: #fff;
 }
 

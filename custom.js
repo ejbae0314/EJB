@@ -1,6 +1,6 @@
 // splash
 
-gsap.timeline().to("#splash", { x: 2400, duration: 10, delay: 2 });
+gsap.timeline().to("#splash", { x: 2000, duration: 5, delay: 2 });
 
 gsap.from("#splash p", {
   x: -200,
@@ -219,6 +219,16 @@ $(window).on("scroll", function () {
   let sec10Top = $(".sec10").offset().top;
 
   let contentsEnd = $(".wrap").offset().top + $(".wrap").outerHeight();
+
+  if (pos + winH >= contentsEnd) {
+    $("footer").css({
+      visibility: "visible",
+    });
+  } else {
+    $("footer").css({
+      visibility: "hidden",
+    });
+  }
 
   // top
 
