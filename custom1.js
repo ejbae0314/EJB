@@ -1,3 +1,46 @@
+// header가 마지막 부분에서 사라짐
+$(window).on("scroll", function () {
+  let pos = $(window).scrollTop();
+  let winH = $(window).height();
+
+  let sec01Top = $(".sec01").offset().top;
+  let sec10Top = $(".sec07").offset().top;
+  let footerTop = $("footer").offset().top;
+  let sec08Bottom = $(".sec08").offset().top + $(".sec08").outerHeight();
+
+  if (pos + winH >= sec08Bottom) {
+    $("header").css({
+      opacity: 0,
+      pointerEvents: "none",
+    });
+  } else {
+    $("header").css({
+      opacity: 1,
+      pointerEvents: "auto",
+    });
+  }
+
+  // top
+  if (pos >= sec01Top) {
+    $(".top").css({
+      opacity: 1,
+      pointerEvents: "auto",
+    });
+  } else {
+    $(".top").css({
+      opacity: 0,
+      pointerEvents: "none",
+    });
+  }
+
+  // top색상변경
+  if (pos >= sec10Top) {
+    $(".top").addClass("footer_mode");
+  } else {
+    $(".top").removeClass("footer_mode");
+  }
+});
+
 // sec01 로고 움직임
 
 gsap.to(".sec01 ul", {
@@ -75,7 +118,24 @@ gsap
     },
   );
 
-//sec04 사진 커짐
+//sec04 이미지 위치 변경
+gsap
+  .timeline({
+    scrollTrigger: {
+      trigger: ".sec04",
+      start: "top 50%",
+      scrub: 2,
+      // markers: true,
+    },
+  })
+  .to(".box1", { rotation: 360, duration: 1 })
+  .to(".box2", { scale: 1.2, duration: 1 })
+  .to(".box3", { x: 10, duration: 1 })
+  .to(".box4", { x: 10, duration: 1 })
+  .to(".box5", { x: 10, duration: 1 })
+  .to(".box6", { x: 10, duration: 1 });
+
+//sec06 사진 커짐
 gsap
   .timeline({
     scrollTrigger: {
@@ -95,6 +155,40 @@ gsap
       "clip-path": "inset(0% 0% 0% 0% round 0%)",
     },
   );
+
+// sec07 graph
+
+let path = document.querySelector(".sec07 path");
+
+if (path) {
+  let length = path.getTotalLength();
+
+  gsap.set(path, {
+    strokeDasharray: length,
+    strokeDashoffset: length,
+  });
+
+  gsap.to(path, {
+    strokeDashoffset: 0,
+    scrollTrigger: {
+      trigger: ".sec07",
+      start: "top 80%",
+      end: "center center",
+      scrub: 2,
+      // markers: true,
+    },
+  });
+}
+
+gsap.from(".node", {
+  opacity: 0,
+  y: 30,
+  stagger: 0.25,
+  scrollTrigger: {
+    trigger: ".sec07",
+    start: "top 70%",
+  },
+});
 
 // sec08 로고 움직임
 
@@ -119,52 +213,52 @@ gsap.to(track, {
 });
 // 스크롤
 
-$(window).on("scroll", function () {
-  let pos = $(window).scrollTop();
-  let winH = $(window).height();
+// $(window).on("scroll", function () {
+//   let pos = $(window).scrollTop();
+//   let winH = $(window).height();
 
-  let sec01Top = $(".sec01").offset().top;
+//   let sec01Top = $(".sec01").offset().top;
 
-  let sec10Top = $(".sec07").offset().top;
+//   let sec10Top = $(".sec07").offset().top;
 
-  let contentsEnd = $("#contents").offset().top + $("#contents").outerHeight();
+//   let contentsEnd = $("#contents").offset().top + $("#contents").outerHeight();
 
-  // header 마지막 부분에서 사라짐
-  if (pos + winH >= contentsEnd - 200) {
-    $("header").css({
-      opacity: 0,
-      pointerEvents: "none",
-    });
-  } else {
-    $("header").css({
-      opacity: 1,
-      pointerEvents: "auto",
-    });
-  }
+//   // header 마지막 부분에서 사라짐
+//   if (pos + winH >= contentsEnd - 200) {
+//     $("header").css({
+//       opacity: 0,
+//       pointerEvents: "none",
+//     });
+//   } else {
+//     $("header").css({
+//       opacity: 1,
+//       pointerEvents: "auto",
+//     });
+//   }
+// });
 
-  // top
+//   // top
 
-  if (pos >= sec01Top) {
-    $(".top").css({
-      opacity: 1,
-      pointerEvents: "auto",
-    });
-  } else {
-    $(".top").css({
-      opacity: 0,
-      pointerEvents: "none",
-    });
-  }
+//   if (pos >= sec01Top) {
+//     $(".top").css({
+//       opacity: 1,
+//       pointerEvents: "auto",
+//     });
+//   } else {
+//     $(".top").css({
+//       opacity: 0,
+//       pointerEvents: "none",
+//     });
+//   }
 
-  // top색상변경
+//   // top색상변경
 
-  if (pos >= sec10Top) {
-    $(".top").addClass("footer_mode");
-    console.log("footer mode ON");
-  } else {
-    $(".top").removeClass("footer_mode");
-  }
-});
+//   if (pos >= sec10Top) {
+//     $(".top").addClass("footer_mode");
+//   } else {
+//     $(".top").removeClass("footer_mode");
+//   }
+// });
 
 // input해서 이메일로
 emailjs.init("xwVu_s-T6B6aeEqC3");

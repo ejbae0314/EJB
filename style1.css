@@ -86,6 +86,23 @@ section {
   background-color: #fff;
 }
 
+/* 공통 section title */
+
+section h2 {
+  font-size: clamp(1rem, 2vw, 1.5rem);
+  font-weight: bold;
+  color: #63521b;
+
+  margin-left: 10%;
+  margin-bottom: 1vw;
+
+  letter-spacing: 0.08em;
+
+  text-shadow:
+    0 0 10px rgba(212, 175, 55, 0.35),
+    0 0 25px rgba(212, 175, 55, 0.18);
+}
+
 /* visual */
 #contents #visual {
   width: 100%;
@@ -112,8 +129,9 @@ section {
 
 /* sec01 */
 
-.sec01 {
-  /* background-color: lightyellow; */
+.sec01 h2,
+.sec08 h2 {
+  padding-top: 1rem;
 }
 
 .sec01 .brands {
@@ -138,6 +156,33 @@ section {
 
 /* sec02 */
 
+.imageBox {
+  position: relative;
+  display: block;
+}
+
+.link {
+  width: clamp(2.2rem, 3vw, 3rem);
+  height: clamp(2.2rem, 3vw, 3rem);
+
+  border-radius: 50%;
+
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #000;
+
+  font-size: clamp(0.8rem, 1vw, 1rem);
+
+  z-index: 10;
+}
+
 .sec02 {
   position: relative;
   width: 100%;
@@ -154,26 +199,33 @@ section {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: 100%;
 }
 
 .sec02 ul {
   display: flex;
   gap: 1rem;
-  width: 100%;
+  width: 80%;
   height: auto;
+
+  margin: 0 auto;
 }
 
 .sec02 ul li {
-  width: calc((100% - 2rem) / 3);
+  /* width: calc((100% - 2rem) / 3); */
 
   flex: 1;
 
   opacity: 0;
 }
 
-.sec02 ul li div.imgBox {
-  position: relative;
+.sec02 ul li:nth-child(1) {
+  /* border: 1px solid red; */
+}
+
+.sec02 ul li:nth-child(1) img {
+  width: 100%;
+  display: block;
 }
 
 .sec02 ul li:nth-child(2) {
@@ -202,22 +254,8 @@ section {
   z-index: 3;
 }
 
-.link {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
-  position: absolute;
-  bottom: 1rem;
-  right: 1rem;
-  color: #000;
-  background-color: lightyellow;
-  line-height: 3rem;
-  text-align: center;
-  z-index: 200;
-}
-
 .sec02 .desc {
-  color: #fff;
+  color: #d4af37;
 }
 
 /* sec03 */
@@ -230,6 +268,12 @@ section {
   padding: 1rem 0;
 }
 
+.sec03 .imageBox,
+.sec06 .imageBox {
+  position: relative;
+  height: fit-content;
+}
+
 .sec03 ul {
   width: 100%;
 }
@@ -240,8 +284,7 @@ section {
   padding: 2rem;
 }
 
-.sec03 ul li .imageBox {
-  position: relative;
+.sec03 .imageBox {
   width: 50%;
 }
 
@@ -249,8 +292,108 @@ section {
   width: 100%;
 }
 
-.sec03 ul li p {
-  width: 40%;
+.sec03 .caseCard {
+  width: 60%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 2vw;
+  border-radius: 2vw;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  box-shadow:
+    0 0 25px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(255, 255, 255, 0.03);
+
+  color: #d4af37;
+}
+
+/* 카드 영역 */
+
+.sec03 .caseBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.2vw;
+}
+
+/* 각각 카드 */
+
+.sec03 .box {
+  padding: 1.4vw;
+  border-radius: 1.2vw;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: 0.35s ease;
+}
+
+/* hover */
+
+.sec03 .box:hover {
+  transform: translateY(-0.3vw);
+
+  background: rgba(255, 255, 255, 0.1);
+
+  box-shadow:
+    0 0 18px rgba(255, 255, 255, 0.08),
+    0 0 28px rgba(255, 255, 255, 0.04);
+}
+
+/* title */
+
+.sec03 .box h4 {
+  font-size: clamp(14px, 1.2vw, 18px);
+  margin-bottom: 1vw;
+
+  color: #d4af37;
+
+  text-shadow:
+    0 0 4px rgba(255, 215, 0, 0.35),
+    0 0 10px rgba(255, 215, 0, 0.25);
+}
+
+/* text */
+
+.sec03 .box p {
+  font-size: clamp(0.85rem, 1vw, 1rem);
+  line-height: 1.8;
+  word-break: keep-all;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+/* highlight */
+
+.sec03 .highlight {
+  margin-top: 2vw;
+  padding: 1.5vw;
+
+  border-left: 3px solid rgba(255, 255, 255, 0.5);
+
+  background: rgba(255, 255, 255, 0.05);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 1vw;
+
+  font-size: clamp(0.9rem, 1vw, 1.05rem);
+  line-height: 1.8;
+
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.htxt {
+  width: 100%;
 }
 
 /* sec04 */
@@ -269,14 +412,11 @@ section {
   width: 100%;
 }
 
-.sec04 ul li div.imageBox {
-  position: relative;
-}
-
 /* sec06 */
 
 .sec06 .imageBox {
-  width: 60%;
+  width: 40%;
+  flex-shrink: 0;
 }
 
 .sec06 .imageBox img {
@@ -285,6 +425,164 @@ section {
 
 .sec06 li {
   display: flex;
+  gap: 2rem;
+}
+
+.sec06 .caseBox {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5vw;
+  margin-top: 3vw;
+}
+
+.sec06 .box {
+  width: 100%;
+  min-height: 20vw;
+
+  padding: 2vw;
+
+  border-radius: 1.5vw;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  transition: all 0.35s ease;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.sec06 .box:hover {
+  transform: translateY(-0.4vw);
+}
+
+.sec06 .box h4 {
+  font-size: clamp(1rem, 1.3vw, 1.4rem);
+
+  color: #d4af37;
+  margin-bottom: 1.2vw;
+
+  letter-spacing: 0.03em;
+
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.7);
+}
+
+.sec06 .box p {
+  width: 100%;
+
+  font-size: clamp(0.85rem, 1vw, 1rem);
+
+  line-height: 1.9;
+
+  word-break: keep-all;
+
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* mobile */
+
+@media screen and (max-width: 768px) {
+  .sec06 .caseBox {
+    grid-template-columns: 1fr;
+    gap: 4vw;
+  }
+
+  .sec06 .box {
+    min-height: auto;
+
+    padding: 5vw;
+
+    border-radius: 4vw;
+  }
+
+  .sec06 .box h4 {
+    margin-bottom: 3vw;
+  }
+}
+
+/* sec07 */
+
+.sec07 {
+}
+
+.cls-1 {
+  fill: none;
+  stroke: #000;
+  stroke-miterlimit: 10;
+  stroke-width: 5px;
+}
+
+@keyframes an {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+.graph {
+  width: clamp(320px, 70vw, 1000px);
+  margin: 50px auto;
+  position: relative;
+  /* border: 1px solid red; */
+  border-radius: 2vw;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.node {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  color: #d4af37;
+
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.35);
+}
+
+.node span {
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+  opacity: 0.7;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.n1 {
+  left: 7%;
+  top: 85%;
+} /* 1998 FCB */
+.n2 {
+  left: 22%;
+  top: 55%;
+} /* 2002 Cheil */
+.n3 {
+  left: 40%;
+  top: 35%;
+} /* 2009 외교부 */
+.n4 {
+  left: 65%;
+  top: 15%;
+} /* 2012 Mindshare */
+.n5 {
+  left: 75%;
+  top: 10%;
+} /* 2015 BBDO */
+.n6 {
+  left: 92%;
+  top: 10%;
+} /* 2019 Awards */
+
+.node:hover {
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 /* sec08 */
